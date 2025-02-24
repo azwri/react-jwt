@@ -6,7 +6,7 @@ export default function Register() {
     const [fullName, setFullName] = React.useState(null)
     const [email, setEmail] = React.useState(null)
     const [password, setPassword] = React.useState(null)
-    const [redirect, setRedirect] = React.useState(false)
+    const [navigate, setnavigate] = React.useState(false)
 
     const submit = async (e) => {
         e.preventDefault()
@@ -24,10 +24,10 @@ export default function Register() {
             })
         })
 
-        return response.ok ? setRedirect(true) : alert('Registration failed')
+        return response.ok ? navigate(true) : alert('Registration failed')
     }
 
-    if (redirect) {
+    if (navigate) {
         return <Navigate to="/login" />
     }
 
